@@ -284,9 +284,6 @@ elif section == "Exploratory Data Analysis":
 elif section == "Visualize with Pairplots":
     st.write(app.visualisation_with_pairplots())
 
-elif section == "Data Preprocessing and Feature Engineering":
-    st.writepreprocess()
-
 elif section == "Data Visualisation":
     st.write(app.basic_visualisation())
 
