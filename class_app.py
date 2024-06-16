@@ -264,7 +264,7 @@ section_prompts = [
     "Visualize with Pairplots",
     "Data Visualisation",
     "Heat Maps",
-    "Data Preprocessing and Feature Engineering",
+    "Dimensionality Reduction with Principal Component analysis",
     "Model Training ",
     "Training Model with PCA reduced data",
     "Model Evaluation",
