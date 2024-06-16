@@ -18,7 +18,7 @@ class DataExplorer:
         title = "A brief information about the data set"
         info = self.data.info()
         st.title(title)
-        st.write(self.data.info())    
+        return self.data.info()  
 
     def print_dataframe_shape(self):
         title = "Shape of the data"
