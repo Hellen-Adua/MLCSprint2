@@ -12,12 +12,12 @@ class DataExplorer:
     def print_statistical_summary(self):
         title = "Statistical Summary of dataset"
         summary = self.data.describe().transpose()
-        st.markdown(f"## {title}", unsafe_allow_html=True)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(summary)
 
     def print_dataset_information(self):
         title = "A brief information about the data set"
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
               
         # Capture data.info() output as a string
         info_str = io.StringIO()
@@ -39,43 +39,43 @@ class DataExplorer:
     def print_dataframe_shape(self):
         title = "Shape of the data"
         shape = self.data.shape
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(shape)
 
     def print_head_of_data(self, size = 5):
         title = "Head of the data"
         head  = self.data.head(size)
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(head)     
 
     def print_tail_of_data(self, size =5):     
         title = "Tail of the data"
         tail  = self.data.tail(size)
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(tail)
 
     def print_null_values_count(self):
         title = "Count of null values: "
         null_count  = self.data.isnull().sum()
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(null_count)  
 
     def print_duplicated_values_count(self):
         title = "Number of duplicated values: "
         duplicates  = self.data.duplicated().sum()
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(duplicates)
 
     def print_unique_values_count(self):
         title = "Count of unique values per feature"
         unique_couts  = self.data.nunique()
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         st.write(unique_couts)  
 
     def print_value_counts(self, category):
         title = "Value counts per category"
         counts = self.data[category].value_counts()
-        st.title(title)
+        st.markdown(f"### {title}", unsafe_allow_html=True)
         print(counts)
 
     def correlation(self):
