@@ -27,7 +27,7 @@ class DataExplorer:
         # info_table['Column'] = info_table['Column'].str.replace(' ', '')
 
         # Display the info table using st.table()
-        st.write(info_df)
+        # st.write(info_df)
         
         # buffer = io.StringIO()
         # self.data.info(buf=buffer)
