@@ -70,7 +70,7 @@ class TrainTestModels:
         # Plotting for all models
         plt.figure(figsize=(12, 6))
         sns.barplot(x='index', y='Score', hue='Condition', data=df_plot, palette="viridis")
-        plt.title('Model Performance Metrics for all modelsBefore and After PCA')
+        plt.title('Model Performance Metrics for all models Before and After PCA')
         plt.ylabel('Score')
         plt.xlabel('Metric')
         plt.ylim(0, 1)  # Assuming scores are between 0 and 1
@@ -105,6 +105,6 @@ class TrainTestModels:
         g.set_axis_labels("Metric", "Score")
         g.set_titles("{col_name}")
         g.set(ylim=(0, 1))
-        g.add_legend(title='Condition', loc="best")
+        g.add_legend(title='Condition')
         plt.show()
         st.pyplot(plt)
