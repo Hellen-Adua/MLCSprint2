@@ -205,8 +205,7 @@ class Application:
         # Train and test each model, and store the structured classification report
         # train model before PCA
         st.write("""The folowing models were trained before dimensionality reduction:
-        {self.models.keys()}
-        
+        SVC, Multinomial Naive Bayes classifier, Decision Trees, Random Forest Classifier, Logistic Regression        
         """)
 
         for model_name, model in self.models.items():
@@ -308,7 +307,7 @@ elif section == "Dimensionality Reduction with Principal Component analysis":
     app.preprocessing_and_feature_engineering()
 
 elif section == "Model Training ":
-    st.write(app.training_and_testing())
+    app.training_and_testing()
 
 elif section == "Model Training After PCA":
     st.write(app.train_after_pca())
