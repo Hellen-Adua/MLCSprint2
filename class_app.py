@@ -179,17 +179,19 @@ class Application:
         st.title("Heat Map")
         vis = Visualize(self.encoded)
         vis.plot_heatmap()
-        st.markdown("""* In a correlation heat map, the higher the correlation value, the more correlated the two variables are:
+        st.markdown("""
+        * In a correlation heat map, the higher the correlation value, the more correlated the two variables are:
         
-                * Radius, Area and Perimeter are correlated (corr>0.9) which is obvious as area and perimeter is calculated using the radius values.
+        * Radius, Area and Perimeter are correlated (corr>0.9) which is obvious as area and perimeter is calculated using the radius values.
                 
-                * Texture_mean and texture_worst are higly correlated with corr_value = 0.98 (texture_worst is the largest value of all the textures).
+        * Texture_mean and texture_worst are higly correlated with corr_value = 0.98 (texture_worst is the largest value of all the textures).
                 
-                * Compactness_mean,concavity_mean,concave_points_mean are also highy correlated with values in range 0.7 to 0.9.
+        * Compactness_mean,concavity_mean,concave_points_mean are also highy correlated with values in range 0.7 to 0.9.
                 
-                * Symmetry_mean and symmetry_worst are correlated too by values 0.7.
+        * Symmetry_mean and symmetry_worst are correlated too by values 0.7.
                 
-                *Fractural_dimension_mean and fractural_dimension_worst are correlated by value 0.77""")
+        *Fractural_dimension_mean and fractural_dimension_worst are correlated by value 0.77
+        """)
 
     def  preprocessing_and_feature_engineering(self):
         self.d_reducer = DimensionalityReducer(self.encoded, n_components=2)
