@@ -12,7 +12,7 @@ class DataExplorer:
     def print_statistical_summary(self):
         title = "Statistical Summary of dataset"
         summary = self.data.describe().transpose()
-        st.title(title)
+        st.markdown(## title, unsafe_allow_html=True)
         st.write(summary)
 
     def print_dataset_information(self):
