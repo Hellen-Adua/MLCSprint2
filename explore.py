@@ -22,12 +22,12 @@ class DataExplorer:
 
         # Convert the info DataFrame to a table format
         
-        info_table = info_df.reset_index()
-        info_table.columns = ['Column', 'Non-Null Count', 'Dtype']
-        info_table['Column'] = info_table['Column'].str.replace(' ', '')
+        # info_table = info_df.reset_index()
+        # info_table.columns = ['Column', 'Non-Null Count', 'Dtype']
+        # info_table['Column'] = info_table['Column'].str.replace(' ', '')
 
         # Display the info table using st.table()
-        st.table(info_table)
+        st.table(info_df)
         
         # buffer = io.StringIO()
         # self.data.info(buf=buffer)
