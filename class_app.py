@@ -144,14 +144,15 @@ class Application:
     
     def explore_data(self):
        # exlpore the data
-        print("""Checking the overall structure of the dataset and what each column represents.""")
+        st.title("Data Exploration")
+        st.write("""Checking the overall structure of the dataset and what each column represents.""")
         explore_data = DataExplorer(df)
-        explore_data.print_dataframe_shape()
-        explore_data.print_dataset_information()
-        explore_data.print_head_of_data()
-        explore_data.print_statistical_summary()
-        explore_data.print_null_values_count()
-        explore_data.print_duplicated_values_count()
+        st.write(explore_data.print_dataframe_shape())
+        st.write(explore_data.print_dataset_information())
+        st.write(explore_data.print_head_of_data())
+        st.write(explore_data.print_statistical_summary())
+        st.write(explore_data.print_null_values_count())
+        st.write(explore_data.print_duplicated_values_count())
 
     def basic_visualisation(self):
         print("Data distribution as shown by countplot, boxplots")
