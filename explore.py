@@ -17,13 +17,26 @@ class DataExplorer:
 
     def print_dataset_information(self):
         title = "A brief information about the data set"
-        buffer = io.StringIO()
-        self.data.info(buf=buffer)
-        info_str = buffer.getvalue()
-        return info_str
-        # info = self.data.info()
-        # st.title(title)
-        # return self.data.info()  
+        
+        info_df = self.data.info(verbose=False, memory_usage='deep')
+
+        # Convert the info DataFrame to a table format
+        
+        info_table = info_df.reset_index()
+        info_table.columns = ['Column', 'Non-Null Count', 'Dtype']
+        info_table['Column'] = info_table['Column'].str.replace(' ', '')
+
+        # Display the info table using st.table()
+        st.table(info_table)
+        
+        # buffer = io.StringIO()
+        # self.data.info(buf=buffer)
+        # info_str = buffer.getvalue()
+        # return info_str
+        # # info = self.data.info()
+        # # st.title(title)
+        # # return self.data.info()
+    
 
     def print_dataframe_shape(self):
         title = "Shape of the data"
