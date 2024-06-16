@@ -27,14 +27,14 @@ class DataExplorer:
         # info_table['Column'] = info_table['Column'].str.replace(' ', '')
 
         # Display the info table using st.table()
-        st.table(info_df)
+        st.write(info_df)
         
         # buffer = io.StringIO()
         # self.data.info(buf=buffer)
         # info_str = buffer.getvalue()
         # return info_str
         # # info = self.data.info()
-        # # st.title(title)
+        st.title(title)
         # # return self.data.info()
     
 
