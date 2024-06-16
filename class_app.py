@@ -190,7 +190,7 @@ class Application:
                 
         * Symmetry_mean and symmetry_worst are correlated too by values 0.7.
                 
-        *Fractural_dimension_mean and fractural_dimension_worst are correlated by value 0.77
+        * Fractural_dimension_mean and fractural_dimension_worst are correlated by value 0.77
         """)
 
     def  preprocessing_and_feature_engineering(self):
@@ -198,6 +198,7 @@ class Application:
         # d_reducer.apply_pca()
         self.d_reducer.plot_pca(categorical_value="diagnosis")
         self.d_reducer.plot_scree_plot()
+        st.markdown("### Performed dimensionality redcution using PCA")
         return self.d_reducer
 
     def training_and_testing(self):
