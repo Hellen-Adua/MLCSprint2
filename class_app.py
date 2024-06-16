@@ -58,7 +58,7 @@ class Application:
 
         self.process_data = DataProcessor(df)
 
-        self.encoded = self.process_data.encoded_data()
+        self.encoded = self.process_data.encode_data()
         self.d_reducer = None
         self.trained_models = {}
         self.model_scores = {}
