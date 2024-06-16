@@ -276,10 +276,10 @@ elif section == "Import Modules":
     st.write(app.import_modules())
 
 elif section == "Load the Data":
-    app.load_data()
+    st.write(app.load_data())
 
 elif section == "Exploratory Data Analysis":
-    st.write(app.explore_data())
+    app.explore_data()
 
 elif section == "Visualize with Pairplots":
     st.write(app.visualisation_with_pairplots())
