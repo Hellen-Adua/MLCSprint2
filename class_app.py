@@ -196,7 +196,7 @@ class Application:
     def  preprocessing_and_feature_engineering(self):
         self.d_reducer = DimensionalityReducer(self.encoded, n_components=2)
         # d_reducer.apply_pca()
-        self.d_reducer.plot_pca(categorical_value="diagnosis")
+        self.d_reducer.plot_pca(categorical_value= self.encoded["diagnosis"])
         self.d_reducer.plot_scree_plot()
         st.markdown("### Performed dimensionality redcution using PCA")
         return self.d_reducer
