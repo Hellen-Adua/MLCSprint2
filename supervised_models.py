@@ -65,9 +65,7 @@ class TrainTestModels:
         # Prepare the DataFrame for plotting
         df_plot = df_combined.reset_index().melt(id_vars='index', var_name='Condition', value_name='Score')
         df_plot[['Model', 'Condition']] = df_plot['Condition'].str.split('_', n=1, expand=True)
-        print(df_plot.head())
-        print(df_plot.columns)
-
+        
         # Plotting for all models
         plt.figure(figsize=(12, 6))
         sns.barplot(x='index', y='Score', hue='Condition', data=df_plot, palette="viridis")
@@ -77,6 +75,7 @@ class TrainTestModels:
         plt.ylim(0, 1)  # Assuming scores are between 0 and 1
         plt.legend(title='Condition', loc='upper right', bbox_to_anchor=(1.1, 1))
         plt.show()
+        st.pyplot(plt)
 
         # Plotting score for each model
         plt.figure(figsize=(12, 6))
@@ -86,7 +85,8 @@ class TrainTestModels:
         plt.xlabel('Metric')
         plt.ylim(0, 1)  # Assuming scores are between 0 and 1
         plt.legend(title='Condition', loc='upper right', bbox_to_anchor=(1.1, 1))
-        plt.show()    
+        plt.show() 
+        st.pyplot(plt)
 
         # Catplot for all models, for all metrics
         n_models = len(df_plot['Model'].unique())
@@ -105,5 +105,5 @@ class TrainTestModels:
         g.set_titles("{col_name}")
         g.set(ylim=(0, 1))
         g.add_legend(title='Condition', loc="best")
-
         plt.show()
+        st.pyplot(plt)
