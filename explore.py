@@ -46,31 +46,31 @@ class DataExplorer:
         title = "Head of the data"
         head  = self.data.head(size)
         st.title(title)
-        print(head)     
+        st.write(head)     
 
     def print_tail_of_data(self, size =5):     
         title = "Tail of the data"
         tail  = self.data.tail(size)
-        print(title)
-        print(tail)
+        st.title(title)
+        st.write(tail)
 
     def print_null_values_count(self):
         title = "Count of null values: "
         null_count  = self.data.isnull().sum()
         st.title(title)
-        print(null_count)  
+        st.write(null_count)  
 
     def print_duplicated_values_count(self):
         title = "Number of duplicated values: "
         duplicates  = self.data.duplicated().sum()
         st.title(title)
-        print(duplicates)
+        st.write(duplicates)
 
     def print_unique_values_count(self):
         title = "Count of unique values per feature"
         unique_couts  = self.data.nunique()
         st.title(title)
-        print(unique_couts)  
+        st.write(unique_couts)  
 
     def print_value_counts(self, category):
         title = "Value counts per category"
