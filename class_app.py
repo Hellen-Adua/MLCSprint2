@@ -205,7 +205,11 @@ class Application:
         # Train and test each model, and store the structured classification report
         # train model before PCA
         st.write("""The folowing models were trained before dimensionality reduction:
-        SVC, Multinomial Naive Bayes classifier, Decision Trees, Random Forest Classifier, Logistic Regression        
+        SVC, 
+        Multinomial Naive Bayes classifier, 
+        Decision Trees, 
+        Random Forest Classifier, 
+        Logistic Regression        
         """)
 
         for model_name, model in self.models.items():
@@ -214,8 +218,8 @@ class Application:
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
             self.test_accuracy.append(testing_accuracy)
-            st.write(self.train_accuracy)
-            st.write(self.test_accuracy)
+            st.write(training_accuracy)
+            st.write(testing_accuracy)
 
     def train_after_pca(self):
         # Negative values in data cannot be passed to MultinomialNB (input X), so we drop it
