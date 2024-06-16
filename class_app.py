@@ -283,7 +283,7 @@ section_prompts = [
     "Heat Maps",
     "Dimensionality Reduction with Principal Component analysis",
     "Model Training ",
-    "Training Model with PCA reduced data",
+    "Model Training After PCA",
     "Model Evaluation",
     "Summary"
   
