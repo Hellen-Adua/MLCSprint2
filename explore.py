@@ -18,7 +18,7 @@ class DataExplorer:
     def print_dataset_information(self):
         title = "A brief information about the data set"
         buffer = io.StringIO()
-        self.df.info(buf=buffer)
+        self.data.info(buf=buffer)
         info_str = buffer.getvalue()
         return info_str
         # info = self.data.info()
