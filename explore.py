@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import streamlit as st
 
 class DataExplorer:
     """ takes an input "data" which is the csv file to be analysed
