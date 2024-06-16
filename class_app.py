@@ -244,14 +244,16 @@ class Application:
                 st.write(testing_accuracy)
 
         
+
+
+    def model_evaluation(self):
         # plot metrics for models
         extracted_values = self.trainer.extract_metrics(self.model_scores)  
 
         extracted_values_after_pca = self.trainer.extract_metrics(self.model_scores_after_pca)
 
         self.trainer.plot_scores(model_scores=self.model_scores, model_scores_after_pca=self.model_scores_after_pca)
-
-    def model_evaluation(self):
+        
         st.write(self.test_accuracy)
         st.write(self.train_accuracy)
         st.write(self.test_accuracy_after_pca)
