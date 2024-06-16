@@ -147,7 +147,7 @@ class Application:
         st.title("Data Exploration")
         st.write("""Checking the overall structure of the dataset and what each column represents.""")
         explore_data = DataExplorer(df)
-        st.write(explore_data.print_dataframe_shape())
+        explore_data.print_dataframe_shape()
         st.write(explore_data.print_dataset_information())
         st.write(explore_data.print_head_of_data())
         st.write(explore_data.print_statistical_summary())
