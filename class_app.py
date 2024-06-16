@@ -202,14 +202,15 @@ class Application:
         return self.d_reducer
 
     def training_and_testing(self):
+       
         # Train and test each model, and store the structured classification report
         # train model before PCA
         st.write("""The folowing models were trained before dimensionality reduction:
-        SVC, 
-        Multinomial Naive Bayes classifier, 
-        Decision Trees, 
-        Random Forest Classifier, 
-        Logistic Regression        
+        * SVC 
+        * Multinomial Naive Bayes classifier
+        * Decision Trees
+        * Random Forest Classifier
+        * Logistic Regression        
         """)
 
         for model_name, model in self.models.items():
@@ -222,6 +223,12 @@ class Application:
             st.write(testing_accuracy)
 
     def train_after_pca(self):
+         st.write("""The folowing models were trained after dimensionality reduction with PCA:
+        * SVC 
+        * Decision Trees
+        * Random Forest Classifier
+        * Logistic Regression        
+        """)
         # Negative values in data cannot be passed to MultinomialNB (input X), so we drop it
         x = self.d_reducer.apply_pca()
         y = self.encoded["diagnosis"]
@@ -233,7 +240,8 @@ class Application:
                 self.model_scores_after_pca[model_name] = report
                 self.train_accuracy_after_pca.append(training_accuracy)
                 self.test_accuracy_after_pca.append(testing_accuracy)
-                # print(f"{model_name} \n {report}\n\n")
+                st.write(training_accuracy)
+                st.write(testing_accuracy)
 
         
         # plot metrics for models
@@ -244,10 +252,10 @@ class Application:
         self.trainer.plot_scores(model_scores=self.model_scores, model_scores_after_pca=self.model_scores_after_pca)
 
     def model_evaluation(self):
-        print(self.test_accuracy)
-        print(self.train_accuracy)
-        print(self.test_accuracy_after_pca)
-        print(self.train_accuracy_after_pca)
+        st.write(self.test_accuracy)
+        st.write(self.train_accuracy)
+        st.write(self.test_accuracy_after_pca)
+        st.write(self.train_accuracy_after_pca)
 
 
     def  test_with_new(self):
@@ -314,10 +322,10 @@ elif section == "Model Training ":
     app.training_and_testing()
 
 elif section == "Model Training After PCA":
-    st.write(app.train_after_pca())
+    app.train_after_pca()
 
 elif section == "Model Evaluation":
-    st.write(app.model_evaluation())
+    app.model_evaluation()
 
 elif section == " Test with new data":
     st.write(app.test_with_new())
