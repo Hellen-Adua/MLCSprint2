@@ -276,7 +276,7 @@ elif section == "Import Modules":
     st.write(app.import_modules())
 
 elif section == "Load the Data":
-    st.write(app.load_data())
+    app.load_data()
 
 elif section == "Exploratory Data Analysis":
     st.write(app.explore_data())
