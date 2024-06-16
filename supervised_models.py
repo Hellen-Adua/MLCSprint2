@@ -69,7 +69,7 @@ class TrainTestModels:
         
         # Plotting for all models
         plt.figure(figsize=(12, 6))
-        sns.barplot(x='index', y='Score', hue='Condition', data=df_plot, palette="viridis")
+        sns.barplot(x='index', y='Score', hue='Condition', data=df_plot)
         plt.title('Model Performance Metrics for all models Before and After PCA')
         plt.ylabel('Score')
         plt.xlabel('Metric')
