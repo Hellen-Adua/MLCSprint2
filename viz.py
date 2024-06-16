@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import streamlit as st
 
 class Visualize:
     def __init__(self, data) -> None:
@@ -19,6 +20,7 @@ class Visualize:
         sns.histplot(data=self.data, x=column, **kwargs)
         plt.title('Histogram')
         plt.show()
+        st.pyplot(plt)
         
 
     def plot_distplot(self, column,figsize=(12,8), **kwargs):
@@ -34,7 +36,8 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.histplot(data=self.data, x=column, **kwargs)
         plt.title('Distplot')
-        plt.show()    
+        plt.show()
+        st.pyplot(plt)
 
 
     def plot_countplot(self, column,figsize=(12,8), **kwargs):
@@ -46,7 +49,8 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.countplot(data=self.data, x=column, **kwargs)
         plt.title('Countplot')
-        plt.show()    
+        plt.show()
+        st.pyplot(plt)
 
     def plot_barplot(self, x, y, figsize=(12,8), **kwargs):
         """kwargs for barplot
@@ -57,7 +61,8 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.barplot(data=self.data, x=x, y=y, estimator=np.mean,ci='sd' **kwargs)
         plt.title('Barplot')
-        plt.show()  
+        plt.show()
+        st.pyplot(plt)
 
     def plot_scatter(self, x, y, figsize=(12,8), **kwargs):
 
@@ -69,7 +74,8 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.scatterplot(data=self.data, x=x, y=y, **kwargs)
         plt.title('Scatter Plot')
-        plt.show()    
+        plt.show()
+        st.pyplot(plt)
 
     def plot_box(self, figsize=(12,8), **kwargs):
 
@@ -81,7 +87,8 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.boxplot(data=self.data, **kwargs)
         plt.title('Box Plot')
-        plt.show()    
+        plt.show()  
+        st.pyplot(plt)
 
 
     def plot_heatmap(self, figsize=(12,12), **kwargs):
@@ -98,7 +105,8 @@ class Visualize:
 
         sns.heatmap(corr, mask= mask, cmap=cmap, square=True, fmt=".2f", **kwargs)
         plt.title('Heatmap')
-        plt.show() 
+        plt.show()
+        st.pyplot(plt)
 
 
     def plot_violin(self, x, y, figsize = (12,8), **kwargs):
@@ -113,6 +121,7 @@ class Visualize:
         sns.violinplot(data=self.data, x=x, y=y, **kwargs)
         plt.title('Violin Plot')
         plt.show()
+        st.pyplot(plt)
 
     # Comparison plots
     def plot_pairplot(self, figsize= (12,8), **kwargs):
@@ -123,4 +132,5 @@ class Visualize:
         kwargs.pop('figsize', None)  # Remove figsize from kwargs
         sns.pairplot(self.data,  hue="diagnosis", corner=True,palette='viridis' )
         plt.title('Pairplot')
-        plt.show()       
+        plt.show()
+        st.pyplot(plt)
