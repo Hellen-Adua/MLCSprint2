@@ -176,10 +176,10 @@ class Application:
         data_viz.plot_pairplot(figsize=(15,15))
 
     def heat_map(self):
-
+        st.title("Heat Map")
         vis = Visualize(self.encoded)
         vis.plot_heatmap()
-        print("""* In a correlation heat map, the higher the correlation value, the more correlated the two variables are:
+        st.markdown("""* In a correlation heat map, the higher the correlation value, the more correlated the two variables are:
                 * Radius, Area and Perimeter are correlated (corr>0.9) which is obvious as area and perimeter is calculated using the radius values.
                 * Texture_mean and texture_worst are higly correlated with corr_value = 0.98 (texture_worst is the largest value of all the textures).
                 * Compactness_mean,concavity_mean,concave_points_mean are also highy correlated with values in range 0.7 to 0.9.
@@ -288,7 +288,7 @@ elif section == "Data Visualisation":
     st.write(app.basic_visualisation())
 
 elif section == "Heat Maps":
-    st.write(app.heat_map)    
+    app.heat_map()    
 
 elif section == "Dimensionality Reduction with Principal Component analysis":
     st.write(app.preprocessing_and_feature_engineering())
