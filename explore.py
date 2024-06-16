@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import io
 
 class DataExplorer:
     """ takes an input "data" which is the csv file to be analysed
@@ -16,9 +17,13 @@ class DataExplorer:
 
     def print_dataset_information(self):
         title = "A brief information about the data set"
-        info = self.data.info()
-        st.title(title)
-        return self.data.info()  
+        buffer = io.StringIO()
+        self.df.info(buf=buffer)
+        info_str = buffer.getvalue()
+        return info_str
+        # info = self.data.info()
+        # st.title(title)
+        # return self.data.info()  
 
     def print_dataframe_shape(self):
         title = "Shape of the data"
