@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+import streamlit as st
 
 class DimensionalityReducer:    
 
