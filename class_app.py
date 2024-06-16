@@ -204,6 +204,10 @@ class Application:
     def training_and_testing(self):
         # Train and test each model, and store the structured classification report
         # train model before PCA
+        st.write("""The folowing models were trained before dimensionality reduction:
+        {self.models.keys()}
+        
+        """)
 
         for model_name, model in self.models.items():
             model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model=model, y=self.encoded["diagnosis"], X=self.encoded.drop(["id" ], axis = 1))
@@ -211,6 +215,8 @@ class Application:
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
             self.test_accuracy.append(testing_accuracy)
+            st.write(self.train_accuracy)
+            st.write(self.test_accuracy)
 
     def train_after_pca(self):
         # Negative values in data cannot be passed to MultinomialNB (input X), so we drop it
