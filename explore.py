@@ -11,13 +11,14 @@ class DataExplorer:
     def print_statistical_summary(self):
         title = "Statistical Summary of dataset"
         summary = self.data.describe().transpose()
-        return title, summary
+        st.title(title)
+        st.write(summary)
 
     def print_dataset_information(self):
         title = "A brief information about the data set"
         info = self.data.info()
         st.title(title)
-        st.table(info)    
+        st.write(info)    
 
     def print_dataframe_shape(self):
         title = "Shape of the data"
