@@ -1,5 +1,5 @@
 # import primary modules 
-# import streamlit as st
+import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -84,7 +84,8 @@ class Application:
     def introduction(self):
         text = """# **Breast Cancer Wiscnosin Dataset Description**
 
-        Features were computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image.
+        Features were computed from a digitized image of a fine needle aspirate (FNA) of a breast mass.
+        They describe characteristics of the cell nuclei present in the image.
 
         Attribute Information:
 
@@ -105,7 +106,8 @@ class Application:
         * symmetry
         * fractal dimension ("coastline approximation" - 1)
 
-        ### **The mean, standard error and "worst" or largest (mean of the three largest values) of these features were computed for each image, resulting in 30 features.**
+        The mean, standard error and "worst" or largest (mean of the three largest values) of these 
+        features were computed for each image, resulting in 30 features.
 
         * For instance, field 3 is Mean Radius, field 13 is Radius SE, field 23 is Worst Radius.
 
@@ -244,8 +246,6 @@ class Application:
 
 # Deployment on streamlit
 
-import streamlit as st
-
 # Prompts for each section
 section_prompts = [
     "Introduction",
@@ -259,7 +259,6 @@ section_prompts = [
     "Model Training ",
     "Training Model with PCA reduced data",
     "Model Evaluation",
-    "Comparison of metrics",
     "Summary"
   
 ]
