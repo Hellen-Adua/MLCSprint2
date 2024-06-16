@@ -28,6 +28,7 @@ class DimensionalityReducer:
         plt.xlabel('Principal Component 1')
         plt.ylabel('Principal Component 2')
         plt.show()
+        st.pyplot(plt)
 
     def plot_scree_plot(self):
         # Create a scree plot
@@ -40,3 +41,4 @@ class DimensionalityReducer:
         plt.xticks(range(1, len(self.pca.explained_variance_ratio_) + 1))
         plt.grid(True)
         plt.show()
+        st.pyplot(plt)
