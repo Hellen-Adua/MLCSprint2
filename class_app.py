@@ -59,7 +59,7 @@ class Application:
         self.process_data = DataProcessor(df)
 
         self.encoded = self.process_data.encode_data()
-        self.d_reducer = {}
+        self.d_reducer = DimensionalityReducer(self.encoded, n_components=2) 
         self.trained_models = {}
         self.model_scores = {}
         self.test_accuracy = []
