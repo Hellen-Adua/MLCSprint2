@@ -223,12 +223,12 @@ class Application:
             st.write(testing_accuracy)
 
     def train_after_pca(self):
-         st.write("""The folowing models were trained after dimensionality reduction with PCA:
-        * SVC 
-        * Decision Trees
-        * Random Forest Classifier
-        * Logistic Regression        
-        """)
+        st.write("""The folowing models were trained after dimensionality reduction with PCA:
+            * SVC 
+            * Decision Trees
+            * Random Forest Classifier
+            * Logistic Regression        
+            """)
         # Negative values in data cannot be passed to MultinomialNB (input X), so we drop it
         x = self.d_reducer.apply_pca()
         y = self.encoded["diagnosis"]
