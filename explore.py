@@ -18,7 +18,7 @@ class DataExplorer:
     def print_dataset_information(self):
         title = "A brief information about the data set"
         
-        info_df = self.data.info(verbose=False, memory_usage='deep')
+        # info_df = self.data.info(verbose=False, memory_usage='deep')
 
         # Convert the info DataFrame to a table format
         
@@ -36,6 +36,22 @@ class DataExplorer:
         # # info = self.data.info()
         st.title(title)
         # # return self.data.info()
+        
+        # Capture df.info() output as a string
+        info_str = io.StringIO()
+        self.data.info(buf=info_str)
+        info_str = info_str.getvalue()
+        
+        # Extract information from the string and create a DataFrame
+        info_data = []
+        for line in info_str.split('\n'):
+            if line.strip():
+                info_data.append(line.split(':'))
+        
+        info_df = pd.DataFrame(info_data, columns=['Info', 'Value'])
+        
+        # Display the info DataFrame using st.table()
+        st.table(info_df)
     
 
     def print_dataframe_shape(self):
