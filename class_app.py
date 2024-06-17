@@ -271,7 +271,7 @@ class Application:
         new_data = TestDataGenerator()
         new_df = new_data.test_data()
 
-        to_test = input(f"Name of model to test new data on: {list(self.trained_models_after_pca.keys())} ")
+        to_test = st.text_input(f"Name of model to test new data on: {list(self.trained_models_after_pca.keys())} ")
         if to_test in self.trained_models_after_pca:
             automate = Automation(self.trained_models_after_pca[to_test])
             predictions = automate.test_new_data(new_df)
