@@ -279,7 +279,7 @@ class Application:
             filename= f"{to_test}.joblib"
             model = joblib.load(filename)
             predictions = model.predict(new_df)
-            print(predictions)
+            return predictions
 
         elif to_test in model_names_after:
             filename= f"{to_test}.joblib"
@@ -288,7 +288,7 @@ class Application:
             d_reducer = DimensionalityReducer(new_df, n_components = 2)
             X = d_reducer.apply_pca()
             predictions = model.predict(X)
-            print(predictions)
+            return predictions
 
 
     def app(self):
