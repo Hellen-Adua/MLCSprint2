@@ -276,83 +276,85 @@ class Application:
             automate = Automation(self.trained_models_after_pca[to_test])
             predictions = automate.test_new_data(new_df)
             return predictions
+
+
+    def app(self):
+        # Deployment on streamlit
+    
+        # Prompts for each section
+        section_prompts = [
+            "Introduction",
+            "Import Modules",
+            "Load the Data",
+            "Exploratory Data Analysis",
+            "Visualize with Pairplots",
+            "Data Visualisation",
+            "Heat Maps",
+            "Dimensionality Reduction with Principal Component analysis",
+            "Model Training ",
+            "Model Training After PCA",
+            "Model Evaluation",
+            "Summary",
+            "Test with new data"
+          
+        ]
         
-
-
-# Deployment on streamlit
-
-# Prompts for each section
-section_prompts = [
-    "Introduction",
-    "Import Modules",
-    "Load the Data",
-    "Exploratory Data Analysis",
-    "Visualize with Pairplots",
-    "Data Visualisation",
-    "Heat Maps",
-    "Dimensionality Reduction with Principal Component analysis",
-    "Model Training ",
-    "Model Training After PCA",
-    "Model Evaluation",
-    "Summary",
-    "Test with new data"
-  
-]
-
-# Sidebar for section selection
-section = st.sidebar.selectbox("Choose a section", section_prompts)
-
+        # Sidebar for section selection
+        section = st.sidebar.selectbox("Choose a section", section_prompts)
+        
+        
+        intro = self.introduction()
+        imports = self.import_modules()
+        loading = self.load_data()
+        explore = self.explore_data()
+        train = app.training_and_testing()
+        train_after_pca = self.train_after_pca()
+        evaluate = self.model_evaluation()
+        test_anew = self.test_with_new()
+        
+        
+        if section == "Introduction":
+            st.markdown(self.introduction())
+        
+        elif section == "Import Modules":
+            st.write(imports)
+        
+        elif section == "Load the Data":
+            st.write(loading)
+        
+        elif section == "Exploratory Data Analysis":
+           explore
+        
+        elif section == "Visualize with Pairplots":
+            st.write(app.visualisation_with_pairplots())
+        
+        elif section == "Data Visualisation":
+            st.write(app.basic_visualisation())
+        
+        elif section == "Heat Maps":
+            app.heat_map()    
+        
+        elif section == "Dimensionality Reduction with Principal Component analysis":
+            app.preprocessing_and_feature_engineering()
+        
+        elif section == "Model Training ":
+            train
+        
+        elif section == "Model Training After PCA":
+            train_after_pca
+        
+        elif section == "Model Evaluation":
+            evaluate
+        
+        elif section == "Test with new data":
+            st.write(anew)
+        
+        elif section == "Summary":
+            st.title("Summary")
+            st.markdown('# Noted overall better model perfomance with dimensionality reduction')
+            
 app = Application()
-# intro = app.introduction()
-# imports = app.import_modules()
-# loading = app.load_data()
-# explore = app.explore_data()
-# train = app.training_and_testing()
-# train_after_pca = app.train_after_pca()
-# evaluate = app.model_evaluation()
-# test_anew = app.test_with_new()
-
-
-if section == "Introduction":
-    st.markdown(intro)
-
-elif section == "Import Modules":
-    st.write(imports)
-
-elif section == "Load the Data":
-    st.write(loading)
-
-elif section == "Exploratory Data Analysis":
-   explore
-
-elif section == "Visualize with Pairplots":
-    st.write(app.visualisation_with_pairplots())
-
-elif section == "Data Visualisation":
-    st.write(app.basic_visualisation())
-
-elif section == "Heat Maps":
-    app.heat_map()    
-
-elif section == "Dimensionality Reduction with Principal Component analysis":
-    app.preprocessing_and_feature_engineering()
-
-elif section == "Model Training ":
-    train
-
-elif section == "Model Training After PCA":
-    train_after_pca
-
-elif section == "Model Evaluation":
-    evaluate
-
-elif section == "Test with new data":
-    st.write(anew)
-
-elif section == "Summary":
-    st.title("Summary")
-    st.markdown('# Noted overall better model perfomance with dimensionality reduction')
-
+app.app()
 
 st.write("THE END")
 
