@@ -6,11 +6,11 @@ class Automation:
     def __init__(self, model) -> None:
         self.model = model
 
-    # def save_model(self, filename):
-    #     joblib.dump(self.model, filename)
+    def save_model(self, filename):
+        joblib.dump(self.model, filename)
 
-    # def load_model(self, filename):
-    #     return joblib.load(filename)
+    def load_model(self, filename):
+        return joblib.load(filename)
 
 
     def test_new_data(self, data):
@@ -21,8 +21,8 @@ class Automation:
         new_data = scaled_data
 
         # load trained model
-        model = self.model
-        predictions = self.model.predict(new_data)
+        model = self.load_model(filename)
+        predictions = model(new_data)
         return predictions
     
 
