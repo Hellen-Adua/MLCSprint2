@@ -60,15 +60,15 @@ class Application:
 
         self.encoded = self.process_data.encode_data()
         self.d_reducer = DimensionalityReducer(self.encoded, n_components=2) 
-        self.trained_models = st.empty()
-        self.model_scores = st.empty()
-        self.test_accuracy = st.empty()
-        self.train_accuracy = st.empty()
+        self.trained_models = {}
+        self.model_scores = {}
+        self.test_accuracy = []
+        self.train_accuracy = []
 
-        self.trained_models_after_pca = st.empty()
-        self.model_scores_after_pca = st.empty()
-        self.test_accuracy_after_pca = st.empty()
-        self.train_accuracy_after_pca = st.empty()
+        self.trained_models_after_pca = {}
+        self.model_scores_after_pca = {}
+        self.test_accuracy_after_pca = []
+        self.train_accuracy_after_pca = []
 
                 # Create a list of all models
         self.models = {
