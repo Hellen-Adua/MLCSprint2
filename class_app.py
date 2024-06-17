@@ -294,7 +294,8 @@ section_prompts = [
     "Model Training ",
     "Model Training After PCA",
     "Model Evaluation",
-    "Summary"
+    "Summary",
+    "Test with new data"
   
 ]
 
@@ -343,9 +344,9 @@ elif section == "Model Training After PCA":
     train_after_pca
 
 elif section == "Model Evaluation":
-    evakuate
+    evaluate
 
-elif section == " Test with new data":
+elif section == "Test with new data":
     st.write(anew)
 
 elif section == "Summary":
