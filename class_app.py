@@ -302,10 +302,10 @@ section_prompts = [
 section = st.sidebar.selectbox("Choose a section", section_prompts)
 
 app = Application()
-intro = st.markdown(app.introduction())
+intro = app.introduction()
 
 if section == "Introduction":
-    intro
+    st.markdown(intro)
 
 elif section == "Import Modules":
     st.write(app.import_modules())
