@@ -223,7 +223,7 @@ class Application:
             st.write(testing_accuracy)
             
 
-    # def train_after_pca(self):
+    def train_after_pca(self):
         st.write("""The folowing models were trained after dimensionality reduction with PCA:
             * SVC 
             * Decision Trees
