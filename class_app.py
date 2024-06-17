@@ -303,18 +303,23 @@ section = st.sidebar.selectbox("Choose a section", section_prompts)
 
 app = Application()
 intro = app.introduction()
+imports = app.import_modules()
+loading = app.load_data()
+explore = app.explore_data()
+train = app.training_and_testing()
+train_after_pca = app.train_after_pca()
 
 if section == "Introduction":
     st.markdown(intro)
 
 elif section == "Import Modules":
-    st.write(app.import_modules())
+    st.write(imports)
 
 elif section == "Load the Data":
-    st.write(app.load_data())
+    st.write(loading)
 
 elif section == "Exploratory Data Analysis":
-    app.explore_data()
+   explore
 
 elif section == "Visualize with Pairplots":
     st.write(app.visualisation_with_pairplots())
@@ -329,10 +334,10 @@ elif section == "Dimensionality Reduction with Principal Component analysis":
     app.preprocessing_and_feature_engineering()
 
 elif section == "Model Training ":
-    app.training_and_testing()
+    train
 
-# elif section == "Model Training After PCA":
-#     app.train_after_pca()
+elif section == "Model Training After PCA":
+    train_after_pca
 
 # elif section == "Model Evaluation":
 #     app.model_evaluation()
