@@ -217,7 +217,7 @@ class Application:
             model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model=model, y=self.encoded["diagnosis"], X=self.encoded.drop(["id" ], axis = 1))
             self.trained_models[model_name] = model
             automate = Automation(model)
-            automate.save_model(f"{model_name}.pkl")
+            automate.save_model(f"{model_name}.joblib")
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
             self.test_accuracy.append(testing_accuracy)
@@ -241,7 +241,7 @@ class Application:
                 model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model, x, y)
                 self.trained_models_after_pca[model_name] = model
                 automate = Automation(model)
-                automate.save_model(f"{model_name}_after_pca.pkl")
+                automate.save_model(f"{model_name}_after_pca.joblib")
                 self.model_scores_after_pca[model_name] = report
                 self.train_accuracy_after_pca.append(training_accuracy)
                 self.test_accuracy_after_pca.append(testing_accuracy)
