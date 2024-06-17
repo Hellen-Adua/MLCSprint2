@@ -221,7 +221,7 @@ class Application:
             self.test_accuracy.append(testing_accuracy)
             st.write(training_accuracy)
             st.write(testing_accuracy)
-            return self.trained_models, self.model_scores, self.test_accuracy, self.train_accuracy
+            
 
     # def train_after_pca(self):
         st.write("""The folowing models were trained after dimensionality reduction with PCA:
@@ -253,6 +253,8 @@ class Application:
         extracted_values_after_pca = self.trainer.extract_metrics(self.model_scores_after_pca)
 
         self.trainer.plot_scores(model_scores=self.model_scores, model_scores_after_pca=self.model_scores_after_pca)
+        
+        return self.trained_models, self.model_scores, self.test_accuracy, self.train_accuracy
         return self.trained_models_after_pca, self.model_scores_after_pca, self.test_accuracy_after_pca, self.train_accuracy_after_pca
 
 
