@@ -275,9 +275,11 @@ class Application:
 
         to_test = st.text_input(f"Name of model to test new data on: {model_names} ")
         if to_test in model_names:
-            automate = Automation(self.trained_models_after_pca[to_test])
-            predictions = automate.test_new_data(new_df)
-            return predictions
+            for model_name, model in self.trained_models_after_pca.items():
+                if to_test == model:
+                    automate = Automation(model)
+                    predictions = automate.test_new_data(new_df)
+                    return predictions
 
 
     def app(self):
