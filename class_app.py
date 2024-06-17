@@ -278,7 +278,7 @@ class Application:
         if to_test in model_names_before:
             filename= f"{to_test}.joblib"
             model = joblib.load(filename)
-            predictions = model.preeict(new_df)
+            predictions = model.predict(new_df)
             print(predictions)
 
         elif to_test in model_names_after:
@@ -287,7 +287,7 @@ class Application:
             
             d_reducer = DimensionalityReducer(new_df, n_components = 2)
             X = d_reducer.apply_pca()
-            predictions = automate.test_new_data(X)
+            predictions = model.predict(X)
             print(predictions)
 
 
