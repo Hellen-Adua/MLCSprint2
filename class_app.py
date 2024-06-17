@@ -303,27 +303,27 @@ class Application:
         section = st.sidebar.selectbox("Choose a section", section_prompts)
         
         
-        intro = self.introduction()
-        imports = self.import_modules()
-        loading = self.load_data()
-        explore = self.explore_data()
-        train = app.training_and_testing()
-        train_after_pca = self.train_after_pca()
-        evaluate = self.model_evaluation()
-        test_anew = self.test_with_new()
+        # intro = self.introduction()
+        # imports = self.import_modules()
+        # loading = self.load_data()
+        # explore = self.explore_data()
+        # train = app.training_and_testing()
+        # train_after_pca = self.train_after_pca()
+        # evaluate = self.model_evaluation()
+        # test_anew = self.test_with_new()
         
         
         if section == "Introduction":
             st.markdown(self.introduction())
         
         elif section == "Import Modules":
-            st.write(imports)
+            st.write(self.import_modules())
         
         elif section == "Load the Data":
-            st.write(loading)
+            st.write(self.load_data())
         
         elif section == "Exploratory Data Analysis":
-           explore
+           self.explore_data()
         
         elif section == "Visualize with Pairplots":
             st.write(app.visualisation_with_pairplots())
@@ -338,13 +338,13 @@ class Application:
             app.preprocessing_and_feature_engineering()
         
         elif section == "Model Training ":
-            train
+            self.training_and_testing()
         
         elif section == "Model Training After PCA":
-            train_after_pca
+            self.train_after_pca()
         
         elif section == "Model Evaluation":
-            evaluate
+            self.model_evaluation()
         
         elif section == "Test with new data":
             st.write(anew)
