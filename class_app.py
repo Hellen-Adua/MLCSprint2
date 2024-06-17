@@ -216,7 +216,7 @@ class Application:
         for model_name, model in self.models.items():
             model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model=model, y=self.encoded["diagnosis"], X=self.encoded.drop(["id" ], axis = 1))
             self.trained_models[model_name] = model
-            automate = Automate(model)
+            automate = Automation(model)
             automate.save_model(f"{model_name}.pkl")
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
@@ -240,7 +240,7 @@ class Application:
             if model_name != 'Naive Bayes':
                 model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model, x, y)
                 self.trained_models_after_pca[model_name] = model
-                automate = Automate(model)
+                automate = Automation(model)
                 automate.save_model(f"{model_name}_after_pca.pkl")
                 self.model_scores_after_pca[model_name] = report
                 self.train_accuracy_after_pca.append(training_accuracy)
