@@ -215,11 +215,7 @@ class Application:
 
         for model_name, model in self.models.items():
             model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model=model, y=self.encoded["diagnosis"], X=self.encoded.drop(["id" ], axis = 1))
-            self.trained_models[model_name] = model
-            # automate = Automation(model)
-            # automate.save_model(f"{model_name}.joblib")
-            filename = f"{model_name}.joblib"
-            joblib.dump(model, filename )
+            self.trained_models[model_name] = model          
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
             self.test_accuracy.append(testing_accuracy)
@@ -242,10 +238,6 @@ class Application:
             if model_name != 'Naive Bayes':
                 model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model, x, y)
                 self.trained_models_after_pca[model_name] = model
-                # automate = Automation(model)
-                filename = f"{model_name}_after_pca.joblib"
-                joblib.dump(model, filename )
-                # automate.save_model(f"{model_name}_after_pca.joblib")
                 self.model_scores_after_pca[model_name] = report
                 self.train_accuracy_after_pca.append(training_accuracy)
                 self.test_accuracy_after_pca.append(testing_accuracy)
@@ -283,11 +275,11 @@ class Application:
 
         to_test = st.text_input(f"Name of model to test new data on: {model_names} ")
         if to_test in model_names:
-            for model_name, model in self.trained_models_after_pca.items():
-                if to_test == model:
-                    automate = Automation(model)
-                    predictions = automate.test_new_data(new_df)
-                    return predictions
+            filename= f"{to_test}.joblib"
+            model = joblib.load(filename)
+            automate = Automation(model)
+            predictions = automate.test_new_data(new_df)
+            print(predictions)
 
 
     def app(self):
