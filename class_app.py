@@ -303,14 +303,14 @@ section_prompts = [
 section = st.sidebar.selectbox("Choose a section", section_prompts)
 
 app = Application()
-intro = app.introduction()
-imports = app.import_modules()
-loading = app.load_data()
-explore = app.explore_data()
-train = app.training_and_testing()
-train_after_pca = app.train_after_pca()
-evaluate = app.model_evaluation()
-test_anew = app.test_with_new()
+# intro = app.introduction()
+# imports = app.import_modules()
+# loading = app.load_data()
+# explore = app.explore_data()
+# train = app.training_and_testing()
+# train_after_pca = app.train_after_pca()
+# evaluate = app.model_evaluation()
+# test_anew = app.test_with_new()
 
 
 if section == "Introduction":
