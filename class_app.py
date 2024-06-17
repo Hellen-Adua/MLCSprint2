@@ -308,6 +308,9 @@ loading = app.load_data()
 explore = app.explore_data()
 train = app.training_and_testing()
 train_after_pca = app.train_after_pca()
+evaluate = app.model_evaluation()
+test_anew = app.test_with_new()
+
 
 if section == "Introduction":
     st.markdown(intro)
@@ -339,11 +342,11 @@ elif section == "Model Training ":
 elif section == "Model Training After PCA":
     train_after_pca
 
-# elif section == "Model Evaluation":
-#     app.model_evaluation()
+elif section == "Model Evaluation":
+    evakuate
 
 elif section == " Test with new data":
-    st.write(app.test_with_new())
+    st.write(anew)
 
 elif section == "Summary":
     st.title("Summary")
