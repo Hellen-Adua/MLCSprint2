@@ -271,14 +271,24 @@ class Application:
         new_data = TestDataGenerator()
         new_df = new_data.test_data()
 
-        model_names = ['svc', 'Logistic Regression', 'Decision Tree', 'Random Forest']
+        model_names_before = ['svc', 'Logistic Regression', 'Decision Tree', 'Random Forest', 'Naive Bayes']
+        model_names_after = ['svc_after_pca', 'Logistic Regression_after_pca', 'Decision Tree_after_pca', 'Random Forest_after_pca']
 
-        to_test = st.text_input(f"Name of model to test new data on: {model_names} ")
-        if to_test in model_names:
+        to_test = st.text_input(f"Name of model to test new data on: {model_names_before} or {model_names_after} ")
+        if to_test in model_names_before:
             filename= f"{to_test}.joblib"
             model = joblib.load(filename)
             automate = Automation(model)
             predictions = automate.test_new_data(new_df)
+            print(predictions)
+
+        elif to_test in model_names_after:
+            filename= f"{to_test}.joblib"
+            model = joblib.load(filename)
+            automate = Automation(model)
+            d_reducer = DimensionalityReducer(new_df, n_components = 2)
+            X = d_reducer.apply_pca()
+            predictions = automate.test_new_data(X)
             print(predictions)
 
 
