@@ -328,11 +328,11 @@ elif section == "Dimensionality Reduction with Principal Component analysis":
 elif section == "Model Training ":
     app.training_and_testing()
 
-elif section == "Model Training After PCA":
-    app.train_after_pca()
+# elif section == "Model Training After PCA":
+#     app.train_after_pca()
 
-elif section == "Model Evaluation":
-    app.model_evaluation()
+# elif section == "Model Evaluation":
+#     app.model_evaluation()
 
 elif section == " Test with new data":
     st.write(app.test_with_new())
