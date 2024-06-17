@@ -349,6 +349,7 @@ class Application:
             self.training_and_testing()
         
         elif section == "Model Training After PCA":
+            self.training_and_testing()
             self.train_after_pca()
         
         elif section == "Model Evaluation":
