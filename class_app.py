@@ -363,7 +363,7 @@ class Application:
             self.model_evaluation()
         
         elif section == "Test with new data":
-            self.test_with_new()
+            st.wrtie(self.test_with_new())
         
         elif section == "Summary":
             st.title("Summary")
