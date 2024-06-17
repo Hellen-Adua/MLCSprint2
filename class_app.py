@@ -223,7 +223,7 @@ class Application:
             st.write(testing_accuracy)
             return self.trained_models, self.model_scores, self.test_accuracy, self.train_accuracy
 
-    def train_after_pca(self):
+    # def train_after_pca(self):
         st.write("""The folowing models were trained after dimensionality reduction with PCA:
             * SVC 
             * Decision Trees
@@ -246,7 +246,7 @@ class Application:
         
                 
         # plot metrics for models
-        self.training_and_testing()
+        # self.training_and_testing()
             
         extracted_values = self.trainer.extract_metrics(self.model_scores)  
 
