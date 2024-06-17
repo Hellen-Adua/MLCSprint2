@@ -7,15 +7,8 @@ class TestDataGenerator:
 
     # Number of observations
     n_samples = 50
-    def __init__(self, data = None) -> None:
-        self.data = data
-    
-    # Function to generate random data for each feature
-    def generate_feature(self, mean, std, n_samples):
-        return np.random.normal(mean, std, n_samples)
-    
-    def test_data(self):
-    # Generate features
+    def __init__(self) -> None:
+        # Generate features
         self.data = {
             'mean_radius': self.generate_feature(14.0, 3.5, self.n_samples),
             'mean_texture': self.generate_feature(19.0, 4.5, self.n_samples),
@@ -48,7 +41,22 @@ class TestDataGenerator:
             'worst_symmetry': self.generate_feature(0.29, 0.07, self.n_samples),
             'worst_fractal_dimension': self.generate_feature(0.08, 0.02, self.n_samples),
         }
-
+    
+    # Function to generate random data for each feature
+    def generate_feature(self, mean, std, n_samples):
+        return np.random.normal(mean, std, n_samples)
+    
+    def test_data(self):
+    
         # Convert to DataFrame
         df = pd.DataFrame(self.data)
-        return self.data
+        df.columns = ['radius_mean', 'texture_mean', 'perimeter_mean',
+       'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean',
+       'concave_points_mean', 'symmetry_mean', 'fractal_dimension_mean',
+       'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se',
+       'compactness_se', 'concavity_se', 'concave_points_se', 'symmetry_se',
+       'fractal_dimension_se', 'radius_worst', 'texture_worst',
+       'perimeter_worst', 'area_worst', 'smoothness_worst',
+       'compactness_worst', 'concavity_worst', 'concave_points_worst',
+       'symmetry_worst', 'fractal_dimension_worst']
+        return df
