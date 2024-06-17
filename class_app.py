@@ -353,10 +353,12 @@ class Application:
             self.train_after_pca()
         
         elif section == "Model Evaluation":
+            self.training_and_testing()
+            self.train_after_pca()
             self.model_evaluation()
         
         elif section == "Test with new data":
-            st.write(self.test_with_new())
+            self.test_with_new()
         
         elif section == "Summary":
             st.title("Summary")
