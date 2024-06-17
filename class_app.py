@@ -246,8 +246,7 @@ class Application:
         
                 
         # plot metrics for models
-        if len(self.model_scores) < 5:
-            self.training_and_testing()
+        self.training_and_testing()
             
         extracted_values = self.trainer.extract_metrics(self.model_scores)  
 
