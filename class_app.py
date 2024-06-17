@@ -274,7 +274,7 @@ class Application:
         model_names = ['svc', 'Logistic Regression', 'Decision Tree', 'Random Forest']
 
         to_test = st.text_input(f"Name of model to test new data on: {model_names} ")
-        if to_test in self.trained_models_after_pca:
+        if to_test in model_names:
             automate = Automation(self.trained_models_after_pca[to_test])
             predictions = automate.test_new_data(new_df)
             return predictions
