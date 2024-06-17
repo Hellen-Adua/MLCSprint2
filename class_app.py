@@ -240,8 +240,10 @@ class Application:
             if model_name != 'Naive Bayes':
                 model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model, x, y)
                 self.trained_models_after_pca[model_name] = model
-                automate = Automation(model)
-                automate.save_model(f"{model_name}_after_pca.joblib")
+                # automate = Automation(model)
+                filename = f"{model_name}_after_pca.joblib"
+                joblib.dump(model, filename )
+                # automate.save_model(f"{model_name}_after_pca.joblib")
                 self.model_scores_after_pca[model_name] = report
                 self.train_accuracy_after_pca.append(training_accuracy)
                 self.test_accuracy_after_pca.append(testing_accuracy)
