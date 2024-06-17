@@ -216,8 +216,10 @@ class Application:
         for model_name, model in self.models.items():
             model, report, training_accuracy, testing_accuracy= self.trainer.train_and_test_model(model=model, y=self.encoded["diagnosis"], X=self.encoded.drop(["id" ], axis = 1))
             self.trained_models[model_name] = model
-            automate = Automation(model)
-            automate.save_model(f"{model_name}.joblib")
+            # automate = Automation(model)
+            # automate.save_model(f"{model_name}.joblib")
+            filename = f"{model_name}.joblib"
+            joblib.dump(model, filename )
             self.model_scores[model_name] = report
             self.train_accuracy.append(training_accuracy)
             self.test_accuracy.append(testing_accuracy)
